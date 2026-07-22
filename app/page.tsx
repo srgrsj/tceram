@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { asset } from "./lib/asset";
 
 const requests = [
   {
@@ -28,11 +29,9 @@ export default function Home() {
     <>
       <section className="hero section-grid">
         <div className="hero-copy">
-          <p className="eyebrow">Техническая керамика · Томск</p>
           <h1>
-            Сложные детали.
-            <span>Инженерный подход.</span>
-            Точный результат.
+            <span className="hero-title-type">Инжиниринговый центр</span>
+            <span className="hero-title-name">«Металлокерамические композиты»</span>
           </h1>
           <p className="hero-lead">
             Разрабатываем и производим изделия из технической керамики — от
@@ -40,21 +39,20 @@ export default function Home() {
           </p>
           <div className="hero-actions">
             <Link className="button button-primary" href="/contact">
-              Обсудить задачу <span aria-hidden="true">↗</span>
+              Обсудить задачу
             </Link>
             <Link className="text-link" href="/projects">
-              Смотреть проекты <span aria-hidden="true">→</span>
+              Смотреть проекты
             </Link>
           </div>
         </div>
         <div className="hero-visual">
-          <img src="/ceramic-hero.jpg" alt="Партия сложных керамических деталей" />
+          <img src={asset("/ceramic-hero-assortment.jpg")} alt="Изделия из белой и терракотовой технической керамики" />
           <div className="hero-tag">
             <span>Точность обработки</span>
             <strong>до 0,01 мм</strong>
           </div>
         </div>
-        <div className="hero-index" aria-hidden="true">01 / 04</div>
       </section>
 
       <section className="intro section-grid">
@@ -69,8 +67,8 @@ export default function Home() {
             технологию изготовления.
           </p>
           <p>
-            Вы получаете не просто деталь, а проработанное инженерное решение,
-            готовое к производству и масштабированию.
+            После согласования материала и геометрии изготавливаем образец,
+            проверяем ключевые параметры и готовим изделие к повторному выпуску.
           </p>
         </div>
       </section>
@@ -78,7 +76,6 @@ export default function Home() {
       <section className="request-section">
         <div className="section-heading">
           <p className="eyebrow">С какими задачами к нам обращаются</p>
-          <span className="section-count">04 направления</span>
         </div>
         <div className="request-list">
           {requests.map((item) => (
@@ -86,7 +83,6 @@ export default function Home() {
               <span className="request-number">{item.number}</span>
               <h3>{item.title}</h3>
               <p>{item.text}</p>
-              <span className="request-arrow" aria-hidden="true">↗</span>
             </article>
           ))}
         </div>
@@ -94,18 +90,18 @@ export default function Home() {
 
       <section className="feature-band">
         <div className="feature-image">
-          <img src="/ceramic-parts.jpg" alt="Керамические детали на технических чертежах" />
+          <img src={asset("/ceramic-parts.jpg")} alt="Керамические детали на технических чертежах" />
         </div>
         <div className="feature-copy">
           <p className="eyebrow">Реверс-инжиниринг</p>
           <h2>От изношенного образца — к новой детали</h2>
           <p>
             Восстановим параметры, учтём реальные нагрузки, подберём состав и
-            подготовим технологию. Сопровождаем проект понятным языком на каждом
-            этапе.
+            подготовим технологию изготовления. После согласования выпустим
+            опытный образец или партию.
           </p>
           <Link className="button button-light" href="/about">
-            Как мы работаем <span aria-hidden="true">→</span>
+            Как мы работаем
           </Link>
         </div>
       </section>
@@ -132,10 +128,10 @@ export default function Home() {
       </section>
 
       <section className="cta section-grid">
-        <p className="eyebrow">Есть нестандартная задача?</p>
-        <h2>Покажите деталь или опишите, что должно работать.</h2>
+        <p className="eyebrow">Заявка на изготовление</p>
+        <h2>Пришлите чертёж, эскиз или фотографию детали.</h2>
         <Link className="button button-primary" href="/contact">
-          Начать обсуждение <span aria-hidden="true">↗</span>
+          Отправить материалы
         </Link>
       </section>
     </>

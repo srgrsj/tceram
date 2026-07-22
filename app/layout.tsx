@@ -1,39 +1,34 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { headers } from "next/headers";
+import BackToTop from "./components/BackToTop";
+import { asset } from "./lib/asset";
 import "./globals.css";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const requestHeaders = await headers();
-  const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host") ?? "localhost:3000";
-  const protocol = requestHeaders.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
-  const base = new URL(`${protocol}://${host}`);
-  const title = "ИЦ «Металлокерамические композиты»";
-  const description = "Разработка и производство сложных изделий из технической и наноструктурной керамики — от прототипа до серийного выпуска.";
+const title = "ИЦ «Металлокерамические композиты»";
+const description = "Разработка и производство сложных изделий из технической и наноструктурной керамики — от прототипа до серийного выпуска.";
 
-  return {
-    metadataBase: base,
-    title: { default: title, template: "%s — ИЦ «МК»" },
-    description,
-    icons: { icon: "/favicon.png" },
-    openGraph: { title, description, type: "website" },
-    twitter: { card: "summary", title, description },
-  };
-}
+export const metadata: Metadata = {
+  title: { default: title, template: "%s — ИЦ «МК»" },
+  description,
+  icons: { icon: asset("/favicon.png") },
+  openGraph: { title, description, type: "website" },
+  twitter: { card: "summary", title, description },
+};
 
 function Header() {
   return (
     <header className="site-header">
       <Link className="brand" href="/" aria-label="ИЦ Металлокерамические композиты — главная">
-        <img src="/logo.png" alt="ИЦ Металлокерамические композиты" />
+        <img src={asset("/logo.png")} alt="ИЦ Металлокерамические композиты" />
       </Link>
       <nav className="desktop-nav" aria-label="Основная навигация">
+        <Link href="/">Главная</Link>
         <Link href="/about">О компании</Link>
         <Link href="/projects">Проекты</Link>
         <Link href="/contact">Обратная связь</Link>
       </nav>
       <Link className="header-contact" href="/contact">
-        Обсудить проект <span aria-hidden="true">↗</span>
+        Обсудить проект
       </Link>
       <details className="mobile-nav">
         <summary aria-label="Открыть меню"><span></span><span></span></summary>
@@ -51,21 +46,14 @@ function Header() {
 function Footer() {
   return (
     <footer className="site-footer">
-      <div className="footer-brand">
-        <img src="/logo.png" alt="" />
-        <p>Сложная керамика для сложных задач.</p>
-      </div>
-      <div className="footer-nav">
-        <span>Навигация</span>
-        <Link href="/about">О компании</Link>
-        <Link href="/projects">Проекты</Link>
-        <Link href="/contact">Обратная связь</Link>
+      <div className="footer-info">
+        <strong>ИЦ «Металлокерамические композиты»</strong>
+        <p>Разработка и производство изделий из технической керамики</p>
       </div>
       <div className="footer-contact">
-        <span>Контакты</span>
         <a href="tel:+79131030315">+7 913 103-03-15</a>
         <a href="mailto:nano-ceramics@mail.ru">nano-ceramics@mail.ru</a>
-        <p>Томск, ул. Карташова, 40а</p>
+        <p>634041, Томск, ул. Карташова, 40а</p>
       </div>
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} ИЦ «Металлокерамические композиты»</span>
@@ -82,6 +70,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Header />
         <main>{children}</main>
         <Footer />
+        <BackToTop />
       </body>
     </html>
   );

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { asset } from "../lib/asset";
 
 export const metadata: Metadata = { title: "О компании" };
 
@@ -15,12 +16,12 @@ export default function AboutPage() {
     <>
       <section className="page-hero page-hero-about">
         <p className="eyebrow">О компании</p>
-        <h1>Инженеры, которые понимают материал.</h1>
-        <p className="page-lead">Наукоёмкое производство, исследовательская база и внимание к каждой задаче.</p>
+        <h1>Разработка материалов и производство изделий</h1>
+        <p className="page-lead">Инжиниринговый центр в Томске, работающий с технической керамикой и композиционными материалами.</p>
       </section>
 
       <section className="about-story section-grid">
-        <div className="about-image"><img src="/company.jpg" alt="Специалисты за работой на производстве" /></div>
+        <div className="about-image"><img src={asset("/company.jpg")} alt="Специалисты за работой на производстве" /></div>
         <div className="about-copy">
           <p className="eyebrow">Компетенции внутри компании</p>
           <h2>Разработка и производство в одном процессе</h2>
@@ -51,7 +52,7 @@ export default function AboutPage() {
       <section className="partners">
         <p className="eyebrow">Нам доверяют</p>
         <div className="partner-list"><span>НИКИЭТ</span><span>НПЦ «Полюс»</span><span>ОЭМК</span><span>Томсккабель</span><span>Сибкабель</span></div>
-        <Link className="text-link" href="/contact">Обсудить сотрудничество <span aria-hidden="true">→</span></Link>
+        <Link className="text-link" href="/contact">Обсудить сотрудничество</Link>
       </section>
     </>
   );
