@@ -21,8 +21,9 @@ main { overflow: hidden; }
 :focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
 
 .site-header { height: 98px; display: grid; grid-template-columns: minmax(240px, 1fr) auto minmax(240px, 1fr); align-items: center; padding: 0 4vw; border-bottom: 1px solid rgba(17,23,24,.18); background: rgba(242,244,241,.92); backdrop-filter: blur(16px); position: relative; z-index: 10; }
-.brand { width: 285px; height: 70px; display: block; }
-.brand img { object-fit: contain; object-position: left center; }
+.brand { width: auto; height: 70px; display: inline-flex; align-items: center; gap: 14px; }
+.brand img { width: 62px; height: 66px; object-fit: contain; object-position: center; }
+.brand-name { color: var(--cyan-dark); font-size: 18px; font-weight: 700; letter-spacing: .035em; }
 .desktop-nav { display: flex; gap: 34px; font-size: 14px; }
 .desktop-nav a, .header-contact { transition: color .2s ease; }
 .desktop-nav a:hover, .header-contact:hover { color: var(--cyan-dark); }
@@ -45,8 +46,6 @@ h2 { font-size: clamp(38px, 4vw, 66px); line-height: .98; font-weight: 500; }
 .hero::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background-image: linear-gradient(rgba(0,127,153,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(0,127,153,.055) 1px, transparent 1px), radial-gradient(circle at 27% 40%, rgba(2,166,196,.12), transparent 32%); background-size: 48px 48px, 48px 48px, auto; mask-image: linear-gradient(90deg, #000, transparent 58%); }
 .hero-copy { grid-column: 1 / 7; align-self: center; z-index: 2; animation: hero-copy-in .75s cubic-bezier(.2,.7,.2,1) both; }
 .hero h1 { max-width: 860px; font-size: clamp(48px, 4.7vw, 76px); line-height: .95; margin: 0 0 34px; font-weight: 500; letter-spacing: -.055em; }
-.hero-title-type, .hero-title-name { display: block; }
-.hero-title-name { max-width: 100%; margin-top: .34em; color: var(--cyan-dark); font-size: .56em; line-height: 1.04; letter-spacing: -.035em; hyphens: none; overflow-wrap: normal; }
 .hero-lead { max-width: 530px; font-size: 20px; line-height: 1.48; color: #435052; }
 .hero-actions { display: flex; align-items: center; gap: 30px; margin-top: 34px; }
 .hero-visual { grid-column: 7 / 13; min-height: 570px; position: relative; overflow: hidden; border: 1px solid rgba(0,127,153,.22); clip-path: polygon(0 0, 100% 0, 100% calc(100% - 28px), calc(100% - 28px) 100%, 0 100%); animation: hero-visual-in .9s .08s cubic-bezier(.2,.7,.2,1) both; }
@@ -209,7 +208,9 @@ h2 { font-size: clamp(38px, 4vw, 66px); line-height: .98; font-weight: 500; }
 
 @media (max-width: 1080px) {
   .site-header { grid-template-columns: 1fr auto; height: 84px; }
-  .brand { width: 235px; height: 60px; }
+  .brand { height: 60px; gap: 11px; }
+  .brand img { width: 52px; height: 56px; }
+  .brand-name { font-size: 16px; }
   .desktop-nav, .header-contact { display: none; }
   .mobile-nav { display: block; justify-self: end; }
   .mobile-nav summary { list-style: none; width: 42px; height: 42px; display: flex; flex-direction: column; justify-content: center; gap: 8px; cursor: pointer; }

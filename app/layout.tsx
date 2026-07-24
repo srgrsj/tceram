@@ -4,11 +4,11 @@ import BackToTop from "./components/BackToTop";
 import { asset } from "./lib/asset";
 import "./globals.css";
 
-const title = "ИЦ «Металлокерамические композиты»";
+const title = "Нанокерамика";
 const description = "Разработка и производство сложных изделий из технической и наноструктурной керамики — от прототипа до серийного выпуска.";
 
 export const metadata: Metadata = {
-  title: { default: title, template: "%s — ИЦ «МК»" },
+  title: { default: title, template: "%s — Нанокерамика" },
   description,
   icons: { icon: asset("/favicon.png") },
   openGraph: { title, description, type: "website" },
@@ -18,8 +18,9 @@ export const metadata: Metadata = {
 function Header() {
   return (
     <header className="site-header">
-      <Link className="brand" href="/" aria-label="ИЦ Металлокерамические композиты — главная">
-        <img src={asset("/logo.png")} alt="ИЦ Металлокерамические композиты" />
+      <Link className="brand" href="/" aria-label="Нанокерамика — главная">
+        <img src={asset("/logo.png")} alt="" />
+        <span className="brand-name">Нанокерамика</span>
       </Link>
       <nav className="desktop-nav" aria-label="Основная навигация">
         <Link href="/">Главная</Link>
@@ -47,7 +48,7 @@ function Footer() {
   return (
     <footer className="site-footer">
       <div className="footer-info">
-        <strong>ИЦ «Металлокерамические композиты»</strong>
+        <strong>Нанокерамика</strong>
         <p>Разработка и производство изделий из технической керамики</p>
       </div>
       <div className="footer-contact">
@@ -56,7 +57,7 @@ function Footer() {
         <p>634041, Томск, ул. Карташова, 40а</p>
       </div>
       <div className="footer-bottom">
-        <span>© {new Date().getFullYear()} ИЦ «Металлокерамические композиты»</span>
+        <span>© {new Date().getFullYear()} Нанокерамика</span>
         <span>Техническая и наноструктурная керамика</span>
       </div>
     </footer>

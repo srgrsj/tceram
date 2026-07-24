@@ -29,10 +29,7 @@ export default function Home() {
     <>
       <section className="hero section-grid">
         <div className="hero-copy">
-          <h1>
-            <span className="hero-title-type">Инжиниринговый центр</span>
-            <span className="hero-title-name">«Металлокерамические композиты»</span>
-          </h1>
+          <h1>Нанокерамика</h1>
           <p className="hero-lead">
             Разрабатываем и производим изделия из технической керамики — от
             идеи или образца до готовой детали.
