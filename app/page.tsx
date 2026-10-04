@@ -27,29 +27,35 @@ const requests = [
 export default function Home() {
   return (
     <>
-      <section className="hero section-grid">
+      <section className="hero hero-dark" aria-labelledby="hero-heading">
+        <img
+          className="hero-backdrop"
+          src={asset("/ceramic-hero-dark.webp")}
+          alt="Белые керамические кольца и втулки на тёмном фоне"
+          width={1584}
+          height={992}
+          fetchPriority="high"
+        />
         <div className="hero-copy">
-          <h1>Нанокерамика</h1>
+          <p className="eyebrow">Техническая керамика</p>
+          <h1 id="hero-heading">Техническая керамика.<br />Надёжность в каждой детали.</h1>
           <p className="hero-lead">
-            Разрабатываем и производим изделия из технической керамики — от
-            идеи или образца до готовой детали.
+            Разрабатываем и производим изделия из технической керамики
           </p>
           <div className="hero-actions">
-            <Link className="button button-primary" href="/contact">
-              Обсудить задачу
+            <Link className="button button-primary" href="/projects">
+              Наша продукция
             </Link>
-            <Link className="text-link" href="/projects">
-              Смотреть проекты
+            <Link className="text-link" href="/about">
+              О компании <span aria-hidden="true">→</span>
             </Link>
           </div>
         </div>
-        <div className="hero-visual">
-          <img src={asset("/ceramic-hero-assortment.jpg")} alt="Изделия из белой и терракотовой технической керамики" />
-          <div className="hero-tag">
-            <span>Точность обработки</span>
-            <strong>до 0,01 мм</strong>
-          </div>
-        </div>
+        <ul className="hero-values" aria-label="Наши приоритеты">
+          <li>Точность</li>
+          <li>Качество</li>
+          <li>Надёжность</li>
+        </ul>
       </section>
 
       <section className="intro section-grid">
