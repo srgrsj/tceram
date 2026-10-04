@@ -1,26 +1,27 @@
 import Link from "next/link";
 import { asset } from "./lib/asset";
+import CeramicsComparison from "./components/CeramicsComparison";
 
 const requests = [
   {
     number: "01",
-    title: "Деталь по образцу",
-    text: "Проведём замеры, восстановим геометрию и подберём материал — даже если исходных чертежей нет.",
+    title: "Разработка с нуля",
+    text: "Начинаем с технической задачи: анализируем условия эксплуатации, выбираем состав керамики и разрабатываем конструкцию.",
   },
   {
     number: "02",
     title: "Сложная геометрия",
-    text: "Изготавливаем втулки, сопла, фильеры, изоляторы, ролики и нестандартные изделия с высокой точностью.",
+    text: "Получаем изделия с точностью до 12 квалитета без дополнительной механической обработки, включая резьбовые соединения керамика — керамика и керамика — металл.",
   },
   {
     number: "03",
     title: "Гибкий объём производства",
-    text: "Проходим путь от единичного прототипа до стабильного серийного выпуска и регулярных поставок.",
+    text: "Изготавливаем опытные образцы и выпускаем мелкие и средние серии. Ассортимент насчитывает более тысячи видов изделий, комплектующих и деталей.",
   },
   {
     number: "04",
-    title: "Замена металла",
-    text: "Помогаем увеличить ресурс узлов, работающих при износе, высокой температуре и в агрессивных средах.",
+    title: "Замена металла и пластика",
+    text: "Подбираем керамические решения для быстроизнашивающихся деталей и участвуем в программах импортозамещения.",
   },
 ];
 
@@ -28,19 +29,16 @@ export default function Home() {
   return (
     <>
       <section className="hero hero-dark" aria-labelledby="hero-heading">
-        <img
-          className="hero-backdrop"
-          src={asset("/ceramic-hero-dark.webp")}
-          alt="Белые керамические кольца и втулки на тёмном фоне"
-          width={1584}
-          height={992}
-          fetchPriority="high"
-        />
+        <div className="hero-product-art">
+          <div className="hero-product-glow" aria-hidden="true" />
+          <img src={asset("/products/ceramic-assortment-cutout.png")} alt="Изделия Нанокерамики: белые керамические кольца и терракотовые фасонные детали" width={1536} height={1024} fetchPriority="high" />
+          <Link className="hero-product-caption" href="/projects#gallery"><span className="hero-product-dot" />Изделия нашего производства<span aria-hidden="true">↗</span></Link>
+        </div>
         <div className="hero-copy">
           <p className="eyebrow">Техническая керамика</p>
           <h1 id="hero-heading">Техническая керамика.<br />Надёжность в каждой детали.</h1>
           <p className="hero-lead">
-            Разрабатываем и производим изделия из технической керамики
+            Разработка и производство технической корундовой керамики полного цикла. В Томске с 2004 года.
           </p>
           <div className="hero-actions">
             <Link className="button button-primary" href="/projects">
@@ -65,13 +63,15 @@ export default function Home() {
         </div>
         <div className="intro-copy">
           <p>
-            Мы подключаемся на раннем этапе: выясняем условия эксплуатации,
-            помогаем сформулировать требования, предлагаем конструкцию и
-            технологию изготовления.
+            К нам можно прийти с технической задачей: нужна деталь, устойчивая
+            к термошокам, агрессивной химической среде или абразивному износу.
+            Инженеры и исследователи проанализируют условия, подберут состав
+            керамики и предложат конструктивное решение.
           </p>
           <p>
-            После согласования материала и геометрии изготавливаем образец,
-            проверяем ключевые параметры и готовим изделие к повторному выпуску.
+            Разрабатываем трёхмерную модель и литейные формы, выполняем спекание,
+            финишную алмазную обработку и нанесение металлизации или глазури.
+            Подтверждаем работоспособность на опытных образцах и готовим выпуск серии.
           </p>
         </div>
       </section>
@@ -93,15 +93,15 @@ export default function Home() {
 
       <section className="feature-band">
         <div className="feature-image">
-          <img src={asset("/ceramic-parts.jpg")} alt="Керамические детали на технических чертежах" />
+          <img src={asset("/products/photo-104.webp")} alt="Реальные керамические детали Нанокерамики на технических чертежах" loading="lazy" />
         </div>
         <div className="feature-copy">
-          <p className="eyebrow">Реверс-инжиниринг</p>
-          <h2>Восстановление детали по образцу</h2>
+          <p className="eyebrow">Полный производственный цикл</p>
+          <h2>От концепции до готового изделия</h2>
           <p>
-            Восстановим параметры, учтём реальные нагрузки, подберём состав и
-            подготовим технологию изготовления. После согласования выпустим
-            опытный образец или партию.
+            Объединяем собственное производство с исследовательским потенциалом
+            Томского государственного университета. Участвуем в разработке
+            новых составов и технологий, НИР и НИОКР промышленных партнёров.
           </p>
           <Link className="button button-light" href="/about">
             Как мы работаем
@@ -109,25 +109,25 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="materials section-grid">
+      <section className="materials section-grid" id="materials">
         <div>
           <p className="eyebrow">Материалы и возможности</p>
-          <h2>Керамика под условия задачи</h2>
+          <h2>Корундовая керамика под условия задачи</h2>
         </div>
         <div className="material-chips" aria-label="Используемые материалы">
-          <span>Al₂O₃</span>
-          <span>Al₂O₃–SiO₂</span>
-          <span>MgO–SiO₂</span>
-          <span>ZrO₂(Y₂O₃)</span>
+          <span>ВК94-1 (22ХС)</span>
+          <span>ВК95-1</span>
+          <Link className="text-link" href="/projects#materials">Технические характеристики →</Link>
         </div>
         <div className="material-note">
           <strong>Ra 0,2 мкм</strong>
           <p>Поверхность от матовой до глянцевой, включая глазирование.</p>
         </div>
         <div className="material-note">
-          <strong>до 50%</strong>
-          <p>Объёмная пористость для специальных применений.</p>
+          <strong>≤ 0,02%</strong>
+          <p>Водопоглощение основных марок корундовой керамики.</p>
         </div>
+        <CeramicsComparison />
       </section>
 
       <section className="cta section-grid">

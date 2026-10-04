@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { company } from "../lib/company";
 
 export const metadata: Metadata = { title: "Обратная связь" };
 
@@ -8,11 +9,17 @@ export default function ContactPage() {
       <div className="contact-intro">
         <p className="eyebrow">Обратная связь</p>
         <h1>Отправьте чертёж, эскиз или фотографию детали</h1>
-        <p>Для первого разговора достаточно фотографии, эскиза или короткого описания условий работы детали.</p>
+        <p>Начать можно с технической задачи или описания условий эксплуатации. Поможем пройти путь от концепции до внедрения готового изделия.</p>
         <div className="contact-details">
-          <div><span>Телефон</span><a href="tel:+79131030315">+7 913 103-03-15</a></div>
-          <div><span>Эл. почта</span><a href="mailto:nano-ceramics@mail.ru">nano-ceramics@mail.ru</a></div>
-          <div><span>Адрес</span><p>634041, Россия, Томск<br />ул. Карташова, 40а</p></div>
+          <div><span>Телефоны</span>{company.phones.map((phone) => <a className="contact-phone" key={phone.href} href={phone.href}>{phone.label}</a>)}</div>
+          <div><span>Эл. почта</span><a href={`mailto:${company.email}`}>{company.email}</a></div>
+          <div className="contact-wide"><span>Специалист по производству и коммуникации</span><p>{company.contact}</p></div>
+          <div className="contact-wide"><span>Адрес</span><p>{company.address}</p></div>
+          <div className="contact-wide company-requisites">
+            <span>Реквизиты</span>
+            <p>{company.name}<br />ИНН 7017098950 · КПП 701701001<br />ОГРН 1047000164970</p>
+            <p>р/с 40702810800000039243<br />Банк ГПБ (АО)<br />к/с 30101810200000000823<br />БИК 044525823</p>
+          </div>
         </div>
       </div>
       <form className="contact-form">

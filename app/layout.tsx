@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import BackToTop from "./components/BackToTop";
 import { asset } from "./lib/asset";
+import { company } from "./lib/company";
 import "./globals.css";
 
 const title = "Нанокерамика";
-const description = "Разработка и производство сложных изделий из технической и наноструктурной керамики — от прототипа до серийного выпуска.";
+const description = "ООО «Нанокерамика», Томск, с 2004 года. Полный цикл разработки и производства изделий из технической корундовой керамики — от концепции до серии.";
 
 export const metadata: Metadata = {
   title: { default: title, template: "%s — Нанокерамика" },
@@ -25,7 +26,7 @@ function Header() {
       <nav className="desktop-nav" aria-label="Основная навигация">
         <Link href="/">Главная</Link>
         <Link href="/about">О компании</Link>
-        <Link href="/projects">Проекты</Link>
+        <Link href="/projects">Продукция</Link>
         <Link href="/contact">Обратная связь</Link>
       </nav>
       <Link className="header-contact" href="/contact">
@@ -36,7 +37,7 @@ function Header() {
         <nav aria-label="Мобильная навигация">
           <Link href="/">Главная</Link>
           <Link href="/about">О компании</Link>
-          <Link href="/projects">Проекты</Link>
+          <Link href="/projects">Продукция</Link>
           <Link href="/contact">Обратная связь</Link>
         </nav>
       </details>
@@ -49,16 +50,16 @@ function Footer() {
     <footer className="site-footer">
       <div className="footer-info">
         <strong>Нанокерамика</strong>
-        <p>Разработка и производство изделий из технической керамики</p>
+        <p>Разработка и производство технической керамики полного цикла с 2004 года</p>
       </div>
       <div className="footer-contact">
-        <a href="tel:+79131030315">+7 913 103-03-15</a>
-        <a href="mailto:nano-ceramics@mail.ru">nano-ceramics@mail.ru</a>
-        <p>634041, Томск, ул. Карташова, 40а</p>
+        {company.phones.map((phone) => <a key={phone.href} href={phone.href}>{phone.label}</a>)}
+        <a href={`mailto:${company.email}`}>{company.email}</a>
+        <p>{company.address}</p>
       </div>
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} Нанокерамика</span>
-        <span>Техническая и наноструктурная керамика</span>
+        <span>Сибирская выносливость и качество, проверенное временем</span>
       </div>
     </footer>
   );
