@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import BackToTop from "./components/BackToTop";
+import MobileNavigation from "./components/MobileNavigation";
 import { asset } from "./lib/asset";
 import { company } from "./lib/company";
 import "./globals.css";
@@ -27,20 +28,13 @@ function Header() {
         <Link href="/">Главная</Link>
         <Link href="/about">О компании</Link>
         <Link href="/projects">Продукция</Link>
+        <Link href="/about#letters">Благодарности</Link>
         <Link href="/contact">Обратная связь</Link>
       </nav>
       <Link className="header-contact" href="/contact">
         Обсудить проект
       </Link>
-      <details className="mobile-nav">
-        <summary aria-label="Открыть меню"><span></span><span></span></summary>
-        <nav aria-label="Мобильная навигация">
-          <Link href="/">Главная</Link>
-          <Link href="/about">О компании</Link>
-          <Link href="/projects">Продукция</Link>
-          <Link href="/contact">Обратная связь</Link>
-        </nav>
-      </details>
+      <MobileNavigation />
     </header>
   );
 }

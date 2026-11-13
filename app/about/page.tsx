@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { asset } from "../lib/asset";
 import { company } from "../lib/company";
+import ThankYouLetters from "../components/ThankYouLetters";
 
 export const metadata: Metadata = { title: "О компании" };
 
@@ -81,6 +82,8 @@ export default function AboutPage() {
           {stages.map(([n, title, text]) => <article key={n}><span>{n}</span><h3>{title}</h3><p>{text}</p></article>)}
         </div>
       </section>
+
+      <ThankYouLetters />
 
       <section className="partners">
         <p className="eyebrow">Партнёры предприятия</p>
